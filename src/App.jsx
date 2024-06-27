@@ -13,11 +13,19 @@ import {
 
 export function App() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showOrder, setShowOrder] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+    setShowOrder(false);
   };
+
+  const [showOrder, setShowOrder] = useState(false);
+
+  const toggleOrder = () => {
+    setShowOrder(!showOrder);
+    setShowMenu(false);
+  };
+
   return (
     <>
       <div w-full min-h-screen>
@@ -30,14 +38,14 @@ export function App() {
           <button className="p-2">
             <RiAddLine />
           </button>
-          <button className="p-2">
+          <button onClick={toggleOrder} className="p-2">
             <RiPieChart2Line />
           </button>
           <button onClick={toggleMenu} className="p-2 text-white">
             {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
           </button>
         </nav>
-        <MainCard />
+        <MainCard toggleOrder={toggleOrder} showOrder={showOrder} />
       </div>
     </>
   );

@@ -1,7 +1,10 @@
 import React from "react";
-import { RiSearchLine, RiArrowDownSLine } from "react-icons/ri";
+import { RiSearchLine, RiCloseLine } from "react-icons/ri";
+import OrderFood from "./shared/OderFood";
+import FoodCard from "./shared/FoodCard";
+import ButtonOrder from "./shared/OrderButton";
 
-const MainCard = () => {
+const MainCard = ({ toggleOrder, showOrder }) => {
   const DateOrder = () => {
     const now = new Date();
     const dayIndex = now.getDay(); // Obtener el número del día de la semana (0=Domingo, 1=Lunes, ..., 6=Sábado)
@@ -24,8 +27,8 @@ const MainCard = () => {
   };
 
   return (
-    <main className="grid grid-cols-1 pb-20 lg:grid-cols-8 lg:pl-28 p-4">
-      <div className="lg:col-span-6 md:p-8">
+    <main className="grid grid-cols-1 pb-20 lg:grid-cols-8 lg:pl-28">
+      <div className="p-4 md:p-8 lg:col-span-6">
         {/*Header*/}
         <header>
           {/* Title and search */}
@@ -96,87 +99,66 @@ const MainCard = () => {
         </div>
         {/* Content */}
         <div className="grid grid-cols-1 gap-20 p-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card */}
-          <div className="flex flex-col items-center gap-2 rounded-xl bg-[#191c21ff] p-8 text-center text-gray-300">
-            <img
-              src="Food_1.png"
-              alt=""
-              className="-mt-24 h-40 w-40 rounded-full object-cover shadow-2xl"
-            />
-            <p className="px-4 pb-4 text-2xl">
-              Speacy seasoned seafood noodles
-            </p>
-            <span className="text-gray-300/80">$9.99</span>
-            <span className="text-gray-300/50">20 Bowls available</span>
+          <FoodCard />
+          <FoodCard />
+          <FoodCard />
+          <FoodCard />
+          <FoodCard />
+          <FoodCard />
+          <FoodCard />
+          <FoodCard />
+          <FoodCard />
+        </div>
+      </div>
+      <div
+        className={`fixed top-0 h-full w-full bg-[#191c21ff] transition-all lg:right-0 lg:col-span-2 lg:w-96 ${showOrder ? "right-0" : "-right-full"}`}
+      >
+        {/* Order */}
+        <div className="relative h-full p-8 pt-16 text-gray-300 lg:pt-8">
+          <RiCloseLine
+            onClick={toggleOrder}
+            className="absolute left-4 top-4 box-content rounded-full bg-[#2b2d31] p-3 text-xl text-gray-300 lg:hidden"
+          />
+          <h1 className="my-4 text-2xl">Order #234231</h1>
+          {/* Pills */}
+          <div className="mb-8 flex flex-wrap items-center gap-4">
+            <ButtonOrder />
           </div>
-          {/* Card */}
-          <div className="flex flex-col items-center gap-2 rounded-xl bg-[#191c21ff] p-8 text-center text-gray-300">
-            <img
-              src="Food_1.png"
-              alt=""
-              className="-mt-24 h-40 w-40 rounded-full object-cover shadow-2xl"
-            />
-            <p className="px-4 pb-4 text-2xl">
-              Speacy seasoned seafood noodles
-            </p>
-            <span className="text-gray-300/80">$9.99</span>
-            <span className="text-gray-300/50">20 Bowls available</span>
+          {/* car */}
+          <div>
+            <div className="mb-4 grid grid-cols-6 p-4">
+              <h5 className="col-span-4">Item</h5>
+              <h5>Qty</h5>
+              <h5>Price</h5>
+            </div>
+            {/* Products */}
+            <div className="h-[400px] overflow-y-scroll md:h-[630px] lg:h-[540px] max-sm:h-[640px]">
+              {/* Product */}
+              <OrderFood />
+              <OrderFood />
+              <OrderFood />
+              <OrderFood />
+              <OrderFood />
+            </div>
           </div>
-          {/* Card */}
-          <div className="flex flex-col items-center gap-2 rounded-xl bg-[#191c21ff] p-8 text-center text-gray-300">
-            <img
-              src="Food_1.png"
-              alt=""
-              className="-mt-24 h-40 w-40 rounded-full object-cover shadow-2xl"
-            />
-            <p className="px-4 pb-4 text-2xl">
-              Speacy seasoned seafood noodles
-            </p>
-            <span className="text-gray-300/80">$9.99</span>
-            <span className="text-gray-300/50">20 Bowls available</span>
-          </div>
-          {/* Card */}
-          <div className="flex flex-col items-center gap-2 rounded-xl bg-[#191c21ff] p-8 text-center text-gray-300">
-            <img
-              src="Food_1.png"
-              alt=""
-              className="-mt-24 h-40 w-40 rounded-full object-cover shadow-2xl"
-            />
-            <p className="px-4 pb-4 text-2xl">
-              Speacy seasoned seafood noodles
-            </p>
-            <span className="text-gray-300/80">$9.99</span>
-            <span className="text-gray-300/50">20 Bowls available</span>
-          </div>
-          {/* Card */}
-          <div className="flex flex-col items-center gap-2 rounded-xl bg-[#191c21ff] p-8 text-center text-gray-300">
-            <img
-              src="Food_1.png"
-              alt=""
-              className="-mt-24 h-40 w-40 rounded-full object-cover shadow-2xl"
-            />
-            <p className="px-4 pb-4 text-2xl">
-              Speacy seasoned seafood noodles
-            </p>
-            <span className="text-gray-300/80">$9.99</span>
-            <span className="text-gray-300/50">20 Bowls available</span>
-          </div>
-          {/* Card */}
-          <div className="flex flex-col items-center gap-2 rounded-xl bg-[#191c21ff] p-8 text-center text-gray-300">
-            <img
-              src="Food_1.png"
-              alt=""
-              className="-mt-24 h-40 w-40 rounded-full object-cover shadow-2xl"
-            />
-            <p className="px-4 pb-4 text-2xl">
-              Speacy seasoned seafood noodles
-            </p>
-            <span className="text-gray-300/80">$9.99</span>
-            <span className="text-gray-300/50">20 Bowls available</span>
+          {/* Submit payment */}
+          <div className="absolute bottom-0 left-0 w-full bg-regal-gray p-4">
+            <div className="mb-4 flex items-center justify-between">
+              <span className="text-gray-400">Discount</span>
+              <span>$0.00</span>
+            </div>
+            <div className="mb-6 flex items-center justify-between">
+              <span className="text-gray-400">Subtotal</span>
+              <span>$201.03</span>
+            </div>
+            <div className="flex items-center">
+              <button className="w-full rounded-lg bg-regal-blue px-4 py-2">
+                Submit Payment
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <div className="fixed right-0 col-span-2 lg:static">carrito</div>
     </main>
   );
 };

@@ -10,6 +10,15 @@ export default {
         'regal-gray': '#293038ff',
         'regal-blue': '#03A9F4',
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(20%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 15s linear infinite',
+      },
     },
   },
   plugins: [],
