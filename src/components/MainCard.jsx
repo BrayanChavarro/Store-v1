@@ -27,7 +27,7 @@ const MainCard = ({ toggleOrder, showOrder }) => {
   };
 
   return (
-    <main className="grid grid-cols-1 pb-20 lg:grid-cols-8 lg:pl-28">
+    <main className="grid grid-cols-1 pb-20 lg:grid-cols-8 lg:pl-20 xl:pr-8 2xl:pl-28">
       <div className="p-4 md:p-8 lg:col-span-6">
         {/*Header*/}
         <header>
@@ -99,12 +99,6 @@ const MainCard = ({ toggleOrder, showOrder }) => {
         </div>
         {/* Content */}
         <div className="grid grid-cols-1 gap-20 p-8 md:grid-cols-2 lg:grid-cols-3">
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
           <FoodCard />
           <FoodCard />
           <FoodCard />
